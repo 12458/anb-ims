@@ -1,0 +1,20 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: ims-instance
+spec:
+  template:
+    metadata:
+      name: ims-1
+    spec:
+      containers:
+        - image: ims-image
+          env:
+            - name: BOT_API_KEY
+              value: <YOUR_BOT_API_KEY>
+            - name: MY_CHANNEL_NAME
+              value: <YOUR_CHANNEL_ID>
+            - name: SECRET_KEY
+              value: <YOUR_FORMSG_SECRET_KEY>
+# gcloud run services replace service.yaml
+
