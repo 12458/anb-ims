@@ -9,9 +9,9 @@ sequenceDiagram
     User ->> FormSG: Fill in Form
     FormSG -->> User: Form Acknowledge
     FormSG-->>Code: Encrypted form data
+    activate Code
     Note over Code: Code decrypt FormSG data
     Note over Code: Code updates internal DB
-    activate Code
     Code-->>Telegram: Send message
     deactivate Code
     Telegram -->> User: Notify users
